@@ -1,11 +1,11 @@
 'use strict';
 
-var React = require('react-native');
-var { requireNativeComponent, PropTypes, View } = React;
+var React, {Component, PropTypes} = require('react');
+var { requireNativeComponent, View } = require('react-native');
 
 var NativeAndroidSegmented = requireNativeComponent('AndroidSegmented', AndroidSegmented);
 
-class AndroidSegmented extends React.Component {
+class AndroidSegmented extends Component {
   constructor() {
     super();
     this._onChange = this._onChange.bind(this);
@@ -20,7 +20,7 @@ class AndroidSegmented extends React.Component {
   render() {
     return (
       <NativeAndroidSegmented
-        {...this.props} 
+        {...this.props}
         onChange={this._onChange}/>
     );
   }
@@ -48,7 +48,7 @@ AndroidSegmented.propTypes = {
 }
 
 AndroidSegmented.defaultProps = {
-  
+
 };
 
 module.exports = AndroidSegmented;
