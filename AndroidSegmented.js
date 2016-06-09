@@ -1,13 +1,13 @@
 'use strict';
 
-var React, {Component, PropTypes} = require('react');
+var React = require('react');
 var { requireNativeComponent, View } = require('react-native');
 
 var NativeAndroidSegmented = requireNativeComponent('AndroidSegmented', AndroidSegmented);
 
-class AndroidSegmented extends Component {
-  constructor() {
-    super();
+class AndroidSegmented extends React.Component {
+  constructor(props) {
+    super(props);
     this._onChange = this._onChange.bind(this);
   }
 
@@ -35,16 +35,16 @@ var colorType = function (props, propName, componentName) {
     }
   };
 
-  return PropTypes.string(props, propName, componentName) || checker();
+  return React.PropTypes.string(props, propName, componentName) || checker();
 }
 
 AndroidSegmented.propTypes = {
   ...View.propTypes,
-  childText: PropTypes.arrayOf(PropTypes.oneOfType([ PropTypes.string ])),
-  orientation:PropTypes.string,
-  tintColor:PropTypes.arrayOf(PropTypes.oneOfType([ PropTypes.string ])),
-  selectedPosition:PropTypes.number,
-  onChange: PropTypes.func,
+  childText: React.PropTypes.arrayOf(React.PropTypes.oneOfType([ React.PropTypes.string ])),
+  orientation:React.PropTypes.string,
+  tintColor:React.PropTypes.arrayOf(React.PropTypes.oneOfType([ React.PropTypes.string ])),
+  selectedPosition:React.PropTypes.number,
+  onChange: React.PropTypes.func,
 }
 
 AndroidSegmented.defaultProps = {
